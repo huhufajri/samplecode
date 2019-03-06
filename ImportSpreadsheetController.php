@@ -75,7 +75,7 @@ class ImportSpreadsheetController extends Controller
      protected function saveImport($data, $model)
     {
         $rows = [];
-        array_shift($data);
+        array_shift($data); // membuang header pada excel
         foreach ($data as $key => $value) {
             if ($value['A'] != null) {
                 $rows[] = array_merge_recursive([null], array_values($value)]);
